@@ -1,0 +1,658 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================
+   VARIÁVEIS DE PADRONIZAÇÃO
+========================= */
+:root {
+    --bg-main: #0B1220;
+    --bg-card: #111C30;
+    --bg-card-alt: #17243B;
+    --border-color: #26354D;
+    --text-primary: #F1F5F9;
+    --text-secondary: #A7B3C7;
+    --accent-color: #38BDF8;
+    --radius-card: 16px;
+    --spacing-card: 24px;
+}
+
+/* =========================
+   CONFIGURAÇÕES GLOBAIS
+========================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 1.125rem;
+}
+
+p {
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   CABEÇALHO (HEADER)
+========================= */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 26px 40px;
+
+    background: linear-gradient(
+        110deg,
+        #0B1220 0%,
+        #111C30 55%,
+        #17243B 100%
+    );
+
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.logo {
+    width: 152px;
+    height: 152px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cabecalho-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.cabecalho-texto h1 {
+    color: var(--text-primary);
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    line-height: 1.05;
+    margin: 0;
+}
+
+.cabecalho-texto p {
+    margin: 0;
+
+    color: var(--accent-color);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cabecalho {
+        gap: 16px;
+        padding: 22px 20px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cabecalho-texto h1 {
+        font-size: 2rem;
+        letter-spacing: -0.8px;
+    }
+
+    .cabecalho-texto p {
+        font-size: 0.62rem;
+        letter-spacing: 1.2px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cabecalho {
+        gap: 12px;
+        padding: 20px 14px;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .cabecalho-texto h1 {
+        font-size: 1.7rem;
+    }
+
+    .cabecalho-texto p {
+        font-size: 0.55rem;
+        letter-spacing: 0.8px;
+    }
+}
+
+
+/* =========================
+   CONTEÚDO DA PÁGINA
+========================= */
+main {
+    padding: 24px 40px;
+}
+
+.secao-bloco {
+    margin: 32px 0;
+}
+
+/* =========================
+   INTRODUÇÃO / DESCRIÇÃO
+========================= */
+.introducao {
+    margin: 0 0 32px;
+    min-width: 0;
+}
+
+.introducao-cabecalho {
+    background: linear-gradient(
+        135deg,
+        var(--bg-card),
+        var(--bg-card-alt)
+    );
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+.introducao-cabecalho h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+
+.introducao-cabecalho p {
+    max-width: 100%;
+    width: 100%;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* =========================
+   BARRA DE LATITUDE E LONGITUDE
+========================= */
+.barra-localizacao {
+    background: var(--bg-card);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin: 0 0 24px;
+    display: inline-block;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.form-coordenadas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.campo-coord {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+}
+
+.campo-coord label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.campo-coord input {
+    width: 115px;
+    padding: 9px 10px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    text-align: center;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-coord input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
+}
+
+.btn-buscar {
+    background-color: #0284C7;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 9px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-buscar:hover {
+    background-color: #0369A1;
+}
+
+.btn-buscar:active {
+    transform: translateY(1px);
+}
+
+/* =========================
+   CARTÕES GERAIS (PADRÃO)
+========================= */
+.card {
+    background-color: var(--bg-card);
+    padding: var(--spacing-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-color);
+    min-width: 0;
+}
+
+/* =========================
+   PAINEL PRINCIPAL (CLIMA + PREVISÃO)
+========================= */
+.painel-principal {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.painel-principal > .secao-bloco {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Altura padronizada e proporcional para os dois blocos principais */
+.card-temperatura,
+.card-previsao {
+    height: 100%;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+/* Clima Atual */
+.temperatura-linha-principal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.icone-clima-atual {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.card-temperatura h2 {
+    font-size: 2.6rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.clima-nome {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.card-temperatura p {
+    font-size: 1.05rem;
+    color: #C2D1E7;
+}
+
+.card-temperatura .max-min {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* =========================
+   PREVISÃO DO TEMPO (7 DIAS)
+========================= */
+.lista-previsao {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+    height: 100%;
+}
+
+.card-dia {
+    background-color: var(--bg-card-alt);
+    padding: 16px 8px;
+    text-align: center;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-wrap: anywhere;
+}
+
+.card-dia h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.card-dia img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin: 8px 0;
+}
+
+.clima-nome-dia {
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.card-dia p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* =========================
+   INDICADORES CLIMÁTICOS
+========================= */
+.lista-indicadores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card-indicador {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 130px;
+}
+
+.indicador-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-indicador img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.card-indicador h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.indicador-valor {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* =========================
+   ALERTAS CLIMÁTICOS
+========================= */
+.lista-alertas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card-alerta {
+    padding: 24px;
+    background: linear-gradient(145deg, var(--bg-card), var(--bg-card-alt));
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.alerta-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.alerta-tipo {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.alerta-nivel {
+    color: var(--text-primary);
+    background-color: rgba(56, 189, 248, 0.10);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-alerta h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.alerta-detalhes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 16px;
+}
+
+.alerta-detalhes p {
+    font-size: 0.9rem;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.alerta-detalhes strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.alerta-descricao {
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+}
+
+.alerta-descricao h4 {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin: 0 0 6px;
+}
+
+.alerta-descricao p {
+    font-size: 0.9rem;
+    margin: 0;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+.estado-alertas {
+    grid-column: 1 / -1;
+    padding: 28px;
+}
+
+.estado-alertas h3 {
+    margin-bottom: 8px;
+}
+
+.estado-alertas p {
+    margin: 0;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 1100px) {
+    .painel-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-previsao {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .lista-alertas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 16px;
+    }
+
+    .cabecalho {
+        padding: 22px 16px;
+        gap: 14px;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .cabecalho-texto h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .cabecalho-texto p {
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+    }
+
+    .introducao-cabecalho {
+        padding: 20px;
+    }
+
+    .introducao-cabecalho h2 {
+        font-size: 1.25rem;
+    }
+
+    .introducao-cabecalho p {
+        font-size: 0.9rem;
+    }
+
+    .barra-localizacao {
+        display: block;
+        padding: 14px;
+    }
+
+    .form-coordenadas {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .campo-coord {
+        justify-content: space-between;
+    }
+
+    .campo-coord input {
+        width: 130px;
+        max-width: 60%;
+    }
+
+    .btn-buscar {
+        width: 100%;
+    }
+
+    .lista-previsao {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lista-indicadores {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .alerta-detalhes {
+        grid-template-columns: 1fr;
+    }
+}
+
