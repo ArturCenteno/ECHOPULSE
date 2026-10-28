@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoPulse | Monitoramento Climático</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <img
+            src="{{ url_for('static', filename='images/logo_echopulse.png') }}"
+            alt="Logo EchoPulse"
+            class="logo"
+        >
+
+        <div class="cabecalho-texto">
+            <h1>EchoPulse</h1>
+            <p>PAINEL DE MONITORAMENTO CLIMÁTICO</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Apresentação do projeto -->
+        <section class="introducao">
+
+            <div class="introducao-cabecalho">
+                <h2>Bem-vindo ao EchoPulse!</h2>
+
+                <p>
+                    O EchoPulse é um painel de monitoramento climático capaz
+                    de acompanhar os principais dados meteorológicos de uma
+                    região, reunindo indicadores climáticos, previsão do tempo
+                    e alertas para eventos potencialmente perigosos.
+
+                    Basta inserir as coordenadas geográficas do local desejado
+                    (latitude e longitude) para monitorar as condições climáticas
+                    da região. O sistema consulta dados fornecidos pelas APIs
+                    Open-Meteo e GDACS, apresentando informações
+                    meteorológicas atualizadas para que o usuário acompanhe
+                    as condições do tempo e receba alertas sobre eventos
+                    climáticos potencialmente perigosos.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Formulário de latitude e longitude -->
+        <h2>LATITUDE E LONGITUDE</h2>
+        <section class="barra-localizacao">
+
+            <p>
+                Informe as coordenadas do local que deseja monitorar.
+            </p>
+
+            <form method="POST" class="form-coordenadas">
+
+                <div class="campo-coord">
+                    <label for="lat">Latitude:</label>
+                    <input
+                        type="text"
+                        id="lat"
+                        name="lat"
+                        value="{{ lat_atual }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo-coord">
+                    <label for="lon">Longitude:</label>
+                    <input
+                        type="text"
+                        id="lon"
+                        name="lon"
+                        value="{{ lon_atual }}"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn-buscar">
+                    Atualizar
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Painel Principal: Clima Atual e Previsão do Tempo -->
+        <div class="painel-principal">
+
+            <!-- Clima Atual -->
+            <section class="secao-bloco">
+                <h2>CLIMA E TEMPERATURA</h2>
+
+                <div class="card card-temperatura">
+
+                    <div class="temperatura-linha-principal">
+                        <img
+                            src="{{ url_for('static', filename='images/' + weather_icon) }}"
+                            alt="Ícone do clima"
+                            class="icone-clima-atual"
+                        >
+
+                        <h2>{{ temperature }} °C</h2>
+                    </div>
+
+                    <h3 class="clima-nome">{{ today_weather }}</h3>
+
+                    <p class="data-hora">{{ date }} - {{ time }}</p>
+
+                    <p class="max-min">
+                        Máxima: {{ max_temperature }} °C /
+                        Mínima: {{ min_temperature }} °C
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- Previsão do Tempo -->
+            <section class="secao-bloco">
+                <h2>PREVISÃO DO TEMPO</h2>
+
+                <div class="card card-previsao">
+                    <div class="lista-previsao">
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_2 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_2) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_2 }}</p>
+                            <p>{{ max_temperature_2 }} °C / {{ min_temperature_2 }} °C</p>
+                        </div>
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_3 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_3) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_3 }}</p>
+                            <p>{{ max_temperature_3 }} °C / {{ min_temperature_3 }} °C</p>
+                        </div>
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_4 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_4) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_4 }}</p>
+                            <p>{{ max_temperature_4 }} °C / {{ min_temperature_4 }} °C</p>
+                        </div>
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_5 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_5) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_5 }}</p>
+                            <p>{{ max_temperature_5 }} °C / {{ min_temperature_5 }} °C</p>
+                        </div>
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_6 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_6) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_6 }}</p>
+                            <p>{{ max_temperature_6 }} °C / {{ min_temperature_6 }} °C</p>
+                        </div>
+
+                        <div class="card card-dia">
+                            <h3>{{ dia_7 }}</h3>
+                            <img
+                                src="{{ url_for('static', filename='images/' + icon_7) }}"
+                                alt="Ícone do clima"
+                            >
+                            <p class="clima-nome-dia">{{ weather_forecast_7 }}</p>
+                            <p>{{ max_temperature_7 }} °C / {{ min_temperature_7 }} °C</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Indicadores Climáticos -->
+        <section class="secao-bloco">
+            <h2>INDICADORES CLIMÁTICOS</h2>
+
+            <div class="lista-indicadores">
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/humitidy.png') }}"
+                            alt="Ícone da umidade"
+                        >
+                        <h3>Umidade</h3>
+                    </div>
+                    <p class="indicador-valor">{{ humidity }} %</p>
+                </div>
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/feels_like.png') }}"
+                            alt="Ícone da sensação térmica"
+                        >
+                        <h3>Sensação Térmica</h3>
+                    </div>
+                    <p class="indicador-valor">{{ feels_like }} °C</p>
+                </div>
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/precipitation.png') }}"
+                            alt="Ícone da precipitação"
+                        >
+                        <h3>Precipitação</h3>
+                    </div>
+                    <p class="indicador-valor">{{ precipitation }} mm</p>
+                </div>
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/pressure.png') }}"
+                            alt="Ícone da pressão atmosférica"
+                        >
+                        <h3>Pressão Atmosférica</h3>
+                    </div>
+                    <p class="indicador-valor">{{ pressure }} Pa</p>
+                </div>
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/wind.png') }}"
+                            alt="Ícone do vento"
+                        >
+                        <h3>Vento</h3>
+                    </div>
+                    <p class="indicador-valor">{{ wind_speed }} km/h</p>
+                </div>
+
+                <div class="card card-indicador">
+                    <div class="indicador-cabecalho">
+                        <img
+                            src="{{ url_for('static', filename='images/cloud.png') }}"
+                            alt="Ícone de nuvens"
+                        >
+                        <h3>Cobertura de Nuvens</h3>
+                    </div>
+                    <p class="indicador-valor">{{ cloud_cover }} %</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Alertas Climáticos -->
+        <section class="secao-bloco">
+            <h2>ALERTAS DE EVENTOS CLIMÁTICOS EXTREMOS</h2>
+
+            <div class="lista-alertas">
+
+                {% if alerts_status == "erro" %}
+
+                    <div class="card estado-alertas">
+                        <h3>Falha na consulta</h3>
+                        <p>
+                            Não foi possível carregar os alertas climáticos.
+                            Tente novamente mais tarde.
+                        </p>
+                    </div>
+
+                {% elif alerts_status == "vazio" %}
+
+                    <div class="card estado-alertas">
+                        <h3>Nenhum evento encontrado</h3>
+                        <p>
+                            Não foram encontrados eventos do GDACS dentro
+                            do raio de 500 km da localização pesquisada.
+                        </p>
+                    </div>
+
+                {% elif alerts_status == "ok" %}
+
+                    {% for alert in alerts %}
+
+                        <article class="card card-alerta">
+
+                            <div class="alerta-cabecalho">
+                                <span class="alerta-tipo">{{ alert.tipo }}</span>
+                                <span class="alerta-nivel">Nível: {{ alert.nivel }}</span>
+                            </div>
+
+                            <h3>{{ alert.nome }}</h3>
+
+                            <div class="alerta-detalhes">
+                                <p>
+                                    <strong>País:</strong>
+                                    {{ alert.pais or "Não informado" }}
+                                </p>
+
+                                <p>
+                                    <strong>Data:</strong>
+                                    {{ alert.data or "Não informada" }}
+                                </p>
+
+                                <p>
+                                    <strong>Distância:</strong>
+                                    {{ alert.distancia }} km
+                                </p>
+                            </div>
+
+                            <div class="alerta-descricao">
+                                <h4>Descrição do evento</h4>
+                                <p>{{ alert.descricao or "Não há descrição disponível para este evento." }}</p>
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
