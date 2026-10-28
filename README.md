@@ -1,2 +1,6 @@
-# ECHOPULSE
-O Echo Pulse é um painel de monitoramento climático capaz de acompanhar os principais dados meteorológicos de uma região, reunindo indicadores climáticos, previsão do tempo e alertas para eventos potencialmente perigosos.
+# ECHOPULSE - PAINEL DE MONITORAMENTO CLIMÁTICO
+
+## Sobre o Projeto:
+
+O EchoPulse é um painel de monitoramento climático que reúne os principais dados meteorológicos em uma interface organizada e compreensível. O sistema permite consultar condições climáticas de uma localização informada pelo usuário, apresentando dados atuais, previsão do tempo e informações relacionadas e eventos climáticos potencialmente perigosos. Seu objetivo é atualizar o usuário das informações mais relevantes sobre o clima da sua região, permitindo que os usuários acompanhem 
+
